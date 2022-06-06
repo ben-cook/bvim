@@ -60,6 +60,12 @@ return packer.startup(function(use)
   use "folke/which-key.nvim"
   use "RRethy/vim-illuminate"
 
+  -- markdown-preview
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+  
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   -- use "lunarvim/darkplus.nvim"
@@ -82,6 +88,8 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  use "nvim-lua/lsp-status.nvim" -- show lsp status
+
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"

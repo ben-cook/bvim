@@ -1,5 +1,7 @@
 local M = {}
 
+local lsp_status = require('lsp-status')
+
 -- TODO: backfill this to template
 M.setup = function()
   local signs = {
@@ -86,6 +88,7 @@ M.on_attach = function(client, bufnr)
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
+  lsp_status.on_attach(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -95,6 +98,6 @@ if not status_ok then
   return
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = vim.tbl_extend('keep', cmp_nvim_lsp.update_capabilities(capabilities) or {}, lsp_status.capabilities)
 
 return M

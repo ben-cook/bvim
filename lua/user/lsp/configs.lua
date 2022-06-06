@@ -5,6 +5,9 @@ end
 
 local lspconfig = require("lspconfig")
 
+local lsp_status = require("lsp-status")
+lsp_status.register_progress()
+
 local servers = { "jsonls", "sumneko_lua", "rust-analyzer" }
 
 lsp_installer.setup {
@@ -15,6 +18,7 @@ for _, server in pairs(servers) do
   local opts = {
     on_attach = require("user.lsp.handlers").on_attach,
     capabilities = require("user.lsp.handlers").capabilities,
+    -- handlers = lsp_status.extenstions 
   }
   local has_custom_opts, server_custom_opts = pcall(require, "user.lsp.settings." .. server)
   if has_custom_opts then
