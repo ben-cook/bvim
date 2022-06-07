@@ -84,12 +84,27 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  -- use "neovim/nvim-lspconfig" -- enable LSP
+  -- use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  use "nvim-lua/lsp-status.nvim" -- show lsp status
+  -- note to self: https://github.com/nvim-lua/lsp-status.nvim/pull/78
+  -- enable original plugin if it ever gets merged
+  use { 
+    "tomtomjhj/lsp-status.nvim",
+    branch = "deprecated" 
+  }
+  -- use "nvim-lua/lsp-status.nvim" -- show lsp status
 
+
+ -- lsp round 2
+  use {
+      'junnplus/nvim-lsp-setup',
+      requires = {
+          'neovim/nvim-lspconfig',
+          'williamboman/nvim-lsp-installer',
+      }
+  }
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
