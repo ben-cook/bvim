@@ -95,7 +95,8 @@ return packer.startup(function(use)
     branch = "deprecated" 
   }
   -- use "nvim-lua/lsp-status.nvim" -- show lsp status
-
+  -- better rust support
+  use "simrat39/rust-tools.nvim"
 
  -- lsp round 2
   use {

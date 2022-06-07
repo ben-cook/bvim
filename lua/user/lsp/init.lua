@@ -34,7 +34,7 @@ require('nvim-lsp-setup').setup({
     -- Install LSP servers automatically
     -- LSP server configuration please see: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     pylsp = {},
-    rust_analyzer = {
+    rust_analyzer = require('nvim-lsp-setup.rust-tools').setup({
       settings = {
         ['rust-analyzer'] = {
           cargo = {
@@ -48,7 +48,7 @@ require('nvim-lsp-setup').setup({
           },
         },
       },
-    },
+    }),
     eslint = {},
     html = {},
     remark_ls = {},
@@ -70,7 +70,7 @@ require('nvim-lsp-setup').setup({
             -- Make the server aware of Neovim runtime files
             library = vim.api.nvim_get_runtime_file("", true),
           }, }
-      }
+      },
     },
   },
 })
