@@ -65,7 +65,7 @@ return packer.startup(function(use)
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
-  
+
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   -- use "lunarvim/darkplus.nvim"
@@ -90,27 +90,27 @@ return packer.startup(function(use)
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   -- note to self: https://github.com/nvim-lua/lsp-status.nvim/pull/78
   -- enable original plugin if it ever gets merged
-  use { 
+  use {
     "tomtomjhj/lsp-status.nvim",
-    branch = "deprecated" 
+    branch = "deprecated"
   }
   -- use "nvim-lua/lsp-status.nvim" -- show lsp status
   -- better rust support
   use "simrat39/rust-tools.nvim"
 
- -- lsp round 2
+  -- lsp round 2
   use {
-      'junnplus/nvim-lsp-setup',
-      requires = {
-          'neovim/nvim-lspconfig',
-          'williamboman/nvim-lsp-installer',
-      }
+    'junnplus/nvim-lsp-setup',
+    requires = {
+      'neovim/nvim-lspconfig',
+      'williamboman/nvim-lsp-installer',
+    }
   }
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-media-files.nvim"
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
   -- Treesitter
   use {
